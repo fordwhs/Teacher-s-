@@ -1005,10 +1005,35 @@ function openModal(id) {
         </div>
       `).join('')}
     </div>
-    <button class="register-btn" onclick="openReg(${e.id})">我要報名</button>
+    <div id="modal-reg-area"></div>
   `;
   document.getElementById('modal-bg').classList.add('open');
   document.body.style.overflow = 'hidden';
+
+  const regArea = document.getElementById('modal-reg-area');
+  if (e.id === 7) {
+    const btnAM = document.createElement('button');
+    btnAM.className = 'register-btn';
+    btnAM.style.cssText = 'margin:0;';
+    btnAM.textContent = '報名上午場';
+    btnAM.onclick = function() { openReg(7, 0); };
+    const btnPM = document.createElement('button');
+    btnPM.className = 'register-btn';
+    btnPM.style.cssText = 'margin:0;background:#5b3e8a;';
+    btnPM.textContent = '報名下午場';
+    btnPM.onclick = function() { openReg(7, 1); };
+    const wrap = document.createElement('div');
+    wrap.style.cssText = 'display:flex;gap:10px;margin:1.5rem 0 1.75rem;';
+    wrap.appendChild(btnAM);
+    wrap.appendChild(btnPM);
+    regArea.appendChild(wrap);
+  } else {
+    const btn = document.createElement('button');
+    btn.className = 'register-btn';
+    btn.textContent = '我要報名';
+    btn.onclick = function() { openReg(e.id, -1); };
+    regArea.appendChild(btn);
+  }
 }
 
 function closeModal() {
@@ -1024,19 +1049,19 @@ function handleBgClick(e) {
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxCIMCDKpKyrUNiWMRk_c4kR9IkQCKo5Y4bpfNSQh_fn94CzLv47s_q4lnsxRxvu0igWw/exec';
 let currentRegEvent = null;
 
-function openReg(id) {
+function openReg(id, session) {
   currentRegEvent = events.find(x => x.id === id);
-  document.getElementById('reg-event-name').textContent = currentRegEvent.title + '　' + currentRegEvent.date;
-  document.getElementById('reg-name').value = '';
-  document.getElementById('reg-content').innerHTML = `
-    <h3>我要報名</h3>
-    <p class="reg-subtitle">${currentRegEvent.title}　${currentRegEvent.date}</p>
-    <label>教師姓名</label>
-    <input type="text" id="reg-name" placeholder="請輸入您的姓名" autocomplete="off" />
-    <button class="reg-submit" id="reg-submit-btn" onclick="submitReg()">確認報名</button>
-  `;
+  var sessionLabel = session === 0 ? '上午場 09:00–12:00' : session === 1 ? '下午場 13:00–16:00' : '';
+  currentRegEvent._session = sessionLabel;
+  var subtitle = currentRegEvent.title + (sessionLabel ? '　' + sessionLabel : '') + '　' + currentRegEvent.date;
+  var html = '<h3>我要報名</h3>'
+    + '<p class="reg-subtitle">' + subtitle + '</p>'
+    + '<label>教師姓名</label>'
+    + '<input type="text" id="reg-name" placeholder="請輸入您的姓名" autocomplete="off" />'
+    + '<button class="reg-submit" id="reg-submit-btn" onclick="submitReg()">確認報名</button>';
+  document.getElementById('reg-content').innerHTML = html;
   document.getElementById('reg-overlay').classList.add('open');
-  setTimeout(() => { const n = document.getElementById('reg-name'); if(n) n.focus(); }, 100);
+  setTimeout(function() { var n = document.getElementById('reg-name'); if(n) n.focus(); }, 100);
 }
 
 function closeReg() {
@@ -1056,11 +1081,12 @@ async function submitReg() {
   const savedName = name;
   const savedEvent = currentRegEvent;
 
+  const sessionStr = savedEvent._session || '';
   const params = new URLSearchParams({
     name: savedName,
-    event: savedEvent.title,
+    event: savedEvent.title + (sessionStr ? '(' + sessionStr + ')' : ''),
     date: savedEvent.date,
-    time: savedEvent.time,
+    time: sessionStr || savedEvent.time,
     location: savedEvent.location,
     timestamp: new Date().toLocaleString('zh-TW', {timeZone:'Asia/Taipei'})
   });
