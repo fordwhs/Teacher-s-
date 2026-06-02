@@ -488,6 +488,40 @@ main {
   line-height: 1.8;
 }
 
+/* FULL BADGE */
+.full-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 12px;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+.card.is-full {
+  opacity: 0.72;
+}
+.card.is-full .card-accent-bar {
+  background: #d1d5db !important;
+}
+.full-modal-notice {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  padding: 14px 16px;
+  color: #b91c1c;
+  font-size: 14px;
+  text-align: center;
+  margin: 1.5rem 0 1.75rem;
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+}
+
 /* REGISTER BUTTON */
 .register-btn {
   display: block;
@@ -829,7 +863,7 @@ const ICON = {
 
 const events = [
   {
-    id:2, title:"教師淡雅提籃花藝研習", cat:"藝術",
+    id:2, title:"教師淡雅提籃花藝研習", full:true, cat:"藝術",
     desc:"提升教師美學素養與紓解教學壓力，以台灣在地花材學習淡雅提籃花藝創作技法。",
     date:"115年06月04日（星期四）", time:"14:00 – 16:00",
     location:"國中部理化教室",
@@ -919,7 +953,7 @@ function renderCards(list) {
   grid.innerHTML = list.map((e, i) => {
     const c = CAT[e.cat];
     return `
-    <div class="card" onclick="openModal(${e.id})" style="animation-delay:${i*0.05}s" role="button" tabindex="0" aria-label="${e.title}">
+    <div class="card ${e.full ? 'is-full' : ''}" onclick="openModal(${e.id})" style="animation-delay:${i*0.05}s" role="button" tabindex="0" aria-label="${e.title}">
       <div class="card-accent-bar" style="background:${c.bar}"></div>
       <div class="card-body">
         <div class="card-head">
@@ -1019,7 +1053,12 @@ function openModal(id) {
   document.body.style.overflow = 'hidden';
 
   const regArea = document.getElementById('modal-reg-area');
-  if (e.id === 7) {
+  if (e.full) {
+    const notice = document.createElement('div');
+    notice.className = 'full-modal-notice';
+    notice.innerHTML = '🈵 已經額滿囉<br><span style="font-size:13px;color:#6b7280">下次請早！</span>';
+    regArea.appendChild(notice);
+  } else if (e.id === 7) {
     const btnAM = document.createElement('button');
     btnAM.className = 'register-btn';
     btnAM.style.cssText = 'margin:0;';
