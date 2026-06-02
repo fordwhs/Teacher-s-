@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>教師研習活動 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1714;
+  --ink-60: #6b6460;
+  --ink-30: #c8c4c0;
+  --paper: #f7f4ef;
+  --paper-warm: #efe9e0;
+  --accent: #8b4513;
+  --accent-light: #c4783a;
+  --gold: #b8860b;
+  --health: #2d6a4f;
+  --health-bg: #e8f5e0;
+  --art: #5b3e8a;
+  --art-bg: #ede8f8;
+  --tech: #1a4f7a;
+  --tech-bg: #e0edf8;
+  --food: #7a4a00;
+  --food-bg: #fdf0d5;
+  --dance: #7a2040;
+  --dance-bg: #fce8ee;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-weight: 300;
+  line-height: 1.8;
+  min-height: 100vh;
+}
+
+/* HEADER */
+header {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3.5rem 2rem 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.header-deco {
+  position: absolute;
+  top: 0; right: 0;
+  width: 320px; height: 100%;
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+.header-deco svg { width: 100%; height: 100%; }
+
+.site-label {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 13.2px;
+  letter-spacing: 0.3em;
+  color: var(--accent-light);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(2.4rem, 5vw, 3.84rem);
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--paper);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.subtitle {
+  font-size: 16.8px;
+  color: rgba(247,244,239,0.55);
+  letter-spacing: 0.08em;
+  margin-bottom: 2rem;
+}
+
+.stats-row {
+  display: flex;
+  gap: 2.5rem;
+  border-top: 1px solid rgba(247,244,239,0.1);
+  padding-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.stat { text-align: left; }
+.stat-num {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: var(--accent-light);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 13.2px;
+  color: rgba(247,244,239,0.45);
+  letter-spacing: 0.15em;
+  margin-top: 4px;
+}
+
+/* SEARCH BAR */
+.search-section {
+  background: var(--ink);
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(247,244,239,0.08);
+}
+
+.search-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem 2rem 0;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.search-wrap {
+  flex: 1;
+  min-width: 200px;
+  position: relative;
+}
+
+.search-wrap svg {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(247,244,239,0.35);
+  pointer-events: none;
+}
+
+#search {
+  width: 100%;
+  padding: 11px 16px 11px 42px;
+  background: rgba(247,244,239,0.07);
+  border: 1px solid rgba(247,244,239,0.12);
+  border-radius: 8px;
+  color: var(--paper);
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 16.8px;
+  font-weight: 300;
+  outline: none;
+  transition: border-color 0.2s;
+}
+#search::placeholder { color: rgba(247,244,239,0.3); }
+#search:focus { border-color: rgba(247,244,239,0.3); }
+
+.filter-wrap {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  padding: 8px 18px;
+  border-radius: 99px;
+  border: 1px solid rgba(247,244,239,0.15);
+  background: transparent;
+  color: rgba(247,244,239,0.55);
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 15.6px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.05em;
+}
+.pill:hover { border-color: rgba(247,244,239,0.35); color: rgba(247,244,239,0.85); }
+.pill.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  font-weight: 500;
+}
+
+/* MAIN */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 4rem;
+}
+
+.result-count {
+  font-size: 14.4px;
+  color: var(--ink-60);
+  letter-spacing: 0.1em;
+  margin-bottom: 1.75rem;
+}
+
+/* CARDS GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(26,23,20,0.07);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  animation: fadeUp 0.35s both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(26,23,20,0.1);
+}
+
+.card-accent-bar {
+  height: 3px;
+  width: 100%;
+}
+
+.card-body { padding: 1.4rem 1.4rem 1rem; flex: 1; }
+
+.card-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.icon-circle {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 24px;
+}
+
+.card-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+.card-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 20.4px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.card-desc {
+  font-size: 15.6px;
+  color: var(--ink-60);
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+.card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 0;
+  border-top: 1px solid rgba(26,23,20,0.06);
+}
+
+.meta-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14.4px;
+  color: var(--ink-60);
+}
+.meta-item svg { flex-shrink: 0; margin-top: 2px; }
+.meta-val { color: var(--ink); font-weight: 400; }
+
+.card-footer {
+  padding: 10px 1.4rem 1.2rem;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.speaker-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--paper);
+  border-radius: 99px;
+  padding: 4px 12px 4px 5px;
+  font-size: 14.4px;
+  color: var(--ink-60);
+}
+
+.chip-avatar {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10.8px; font-weight: 500; color: #fff;
+  flex-shrink: 0;
+}
+.chip-name { color: var(--ink); font-weight: 500; }
+
+/* EMPTY */
+.empty {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 5rem 2rem;
+  color: var(--ink-60);
+  font-size: 16.8px;
+}
+.empty-icon { font-size: 3.6rem; margin-bottom: 1rem; }
+
+/* MODAL */
+.modal-bg {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(26,23,20,0.55);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.modal-bg.open { display: flex; }
+
+.modal {
+  background: #fff;
+  border-radius: 16px;
+  max-width: 580px;
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.25s cubic-bezier(.22,.68,0,1.2);
+  -webkit-overflow-scrolling: touch;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-banner {
+  height: 6px;
+  border-radius: 16px 16px 0 0;
+}
+
+.modal-body { padding: 1.75rem 1.75rem 0; }
+.modal-close-btn {
+  position: absolute;
+  top: 18px; right: 18px;
+  width: 32px; height: 32px;
+  border: 1px solid rgba(26,23,20,0.1);
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 19.2px;
+  color: var(--ink-60);
+  transition: background 0.15s;
+}
+.modal-close-btn:hover { background: var(--paper); }
+
+.modal-tag {
+  display: inline-block;
+  font-size: 13.2px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  padding: 3px 12px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.modal-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 28.8px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+.modal-desc {
+  font-size: 16.8px;
+  color: var(--ink-60);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(26,23,20,0.07);
+}
+
+.modal-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.modal-meta-box {
+  background: var(--paper);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.modal-meta-box .label {
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  color: var(--ink-60);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+.modal-meta-box .val {
+  font-size: 15.6px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.speakers-section { padding-bottom: 1.75rem; }
+.speakers-label {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--ink-60);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.speaker-card {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 14px 0;
+  border-top: 1px solid rgba(26,23,20,0.06);
+}
+
+.speaker-avatar-lg {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 500; color: #fff;
+  flex-shrink: 0;
+}
+
+.speaker-name {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 19.2px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+.speaker-role {
+  font-size: 14.4px;
+  color: var(--ink-60);
+  margin-bottom: 8px;
+}
+.speaker-bio {
+  font-size: 15.6px;
+  color: var(--ink-60);
+  line-height: 1.8;
+}
+
+/* REGISTER BUTTON */
+.register-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  border-radius: 10px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 15.6px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  margin: 1.5rem 0 1.75rem;
+  transition: background 0.2s, transform 0.1s;
+}
+.register-btn:hover { background: #333; }
+.register-btn:active { transform: scale(0.98); }
+
+/* REGISTER FORM */
+.reg-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(26,23,20,0.65);
+  backdrop-filter: blur(6px);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.reg-overlay.open { display: flex; }
+.reg-box {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 420px;
+  width: 100%;
+  position: relative;
+  animation: slideUp 0.25s cubic-bezier(.22,.68,0,1.2);
+}
+.reg-box h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.reg-box .reg-subtitle {
+  font-size: 13px;
+  color: var(--ink-60);
+  margin-bottom: 1.5rem;
+}
+.reg-box label {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--ink-60);
+  margin-bottom: 6px;
+}
+.reg-box input[type="text"] {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid rgba(26,23,20,0.15);
+  border-radius: 8px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 15px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s;
+  margin-bottom: 1.25rem;
+}
+.reg-box input[type="text"]:focus { border-color: var(--ink); }
+.reg-submit {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  border-radius: 8px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: 0.08em;
+  transition: background 0.2s;
+}
+.reg-submit:hover { background: #333; }
+.reg-submit:disabled { background: #aaa; cursor: not-allowed; }
+.reg-close {
+  position: absolute;
+  top: 14px; right: 14px;
+  width: 30px; height: 30px;
+  border: 1px solid rgba(26,23,20,0.1);
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  color: var(--ink-60);
+}
+.reg-close:hover { background: var(--paper); }
+
+/* SUCCESS */
+.success-box {
+  text-align: center;
+  padding: 1rem 0 0.5rem;
+}
+.success-icon {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: #e8f5e0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+  margin: 0 auto 1rem;
+}
+.success-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.success-msg {
+  font-size: 14px;
+  color: var(--ink-60);
+  line-height: 1.8;
+}
+.success-close-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 10px 28px;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  border-radius: 8px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.success-close-btn:hover { background: #333; }
+
+/* FOOTER */
+footer {
+  background: var(--ink);
+  color: rgba(247,244,239,0.35);
+  text-align: center;
+  padding: 2rem;
+  font-size: 14.4px;
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 640px) {
+  /* Header */
+  .header-inner { padding: 2rem 1.25rem 1.5rem; }
+  h1 { font-size: 1.9rem; letter-spacing: 0.03em; }
+  .subtitle { font-size: 13px; }
+  .stats-row { gap: 1.25rem; padding-top: 1rem; }
+  .stat-num { font-size: 1.8rem; }
+
+  /* Search section */
+  .search-section { padding-bottom: 1.25rem; }
+  .search-inner {
+    padding: 0 1.25rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .search-wrap { min-width: unset; width: 100%; }
+  .filter-wrap { gap: 6px; }
+  .pill { font-size: 13px; padding: 7px 13px; }
+
+  /* Main */
+  main { padding: 1.5rem 1.25rem 3rem; }
+
+  /* Grid */
+  .grid { grid-template-columns: 1fr; gap: 14px; }
+
+  /* Modal */
+  .modal-bg { align-items: flex-end; padding: 0; }
+  .modal {
+    border-radius: 20px 20px 0 0;
+    max-height: 92vh;
+    width: 100%;
+    max-width: 100%;
+  }
+  .modal-banner { border-radius: 20px 20px 0 0; }
+  .modal-body { padding: 1.25rem 1.25rem 0; }
+  .modal-meta-grid { grid-template-columns: 1fr; }
+  .modal-title { font-size: 22px; }
+
+  /* Reg box */
+  .reg-overlay { align-items: flex-end; padding: 0; }
+  .reg-box {
+    border-radius: 20px 20px 0 0;
+    max-width: 100%;
+    width: 100%;
+    padding: 1.75rem 1.25rem 2.5rem;
+  }
+
+  /* Card */
+  .card-body { padding: 1.1rem 1.1rem 0.75rem; }
+  .card-footer { padding: 8px 1.1rem 1rem; }
+  .card-title { font-size: 17px; }
+  .card-desc { font-size: 13px; }
+}
+
+/* FLOATING KEYWORDS */
+.fw-1 { font-size: 7rem; top: 10%; left: -2%; animation-duration: 8s; animation-direction: alternate; }
+.fw-2 { font-size: 5rem; top: 40%; right: 5%; animation-duration: 11s; animation-direction: alternate-reverse; }
+.fw-3 { font-size: 6rem; bottom: 8%; left: 20%; animation-duration: 9s; animation-direction: alternate; }
+
+@media (max-width: 640px) {
+  .fw-1 { font-size: 3.5rem; top: 8%;  left: 2%;   }
+  .fw-2 { font-size: 3rem;   top: 45%; right: 4%;  }
+  .fw-3 { font-size: 3.2rem; bottom: 10%; left: 35%; }
+}
+
+.float-words {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+.float-word {
+  position: absolute;
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 300;
+  color: rgba(247,244,239,0.055);
+  letter-spacing: 0.25em;
+  white-space: nowrap;
+  animation: floatDrift linear infinite;
+  user-select: none;
+}
+@keyframes floatDrift {
+  from { transform: translateY(0px); }
+  to   { transform: translateY(-18px); }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-deco">
+    <svg viewBox="0 0 320 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="280" cy="40" r="120" stroke="white" stroke-width="0.5"/>
+      <circle cx="280" cy="40" r="80" stroke="white" stroke-width="0.5"/>
+      <circle cx="280" cy="40" r="40" stroke="white" stroke-width="0.5"/>
+      <line x1="0" y1="120" x2="320" y2="120" stroke="white" stroke-width="0.3"/>
+      <line x1="160" y1="0" x2="160" y2="240" stroke="white" stroke-width="0.3"/>
+    </svg>
+  </div>
+  <div class="float-words" aria-hidden="true">
+    <span class="float-word fw-1">增能</span>
+    <span class="float-word fw-2">療癒</span>
+    <span class="float-word fw-3">舒壓</span>
+  </div>
+  <div class="header-inner">
+    <span class="site-label">教師研習 · 民國 115 年</span>
+    <h1>教師研習<br>活動總覽</h1>
+    <p class="subtitle">健康 · 藝術 · 科技 · 生活美學 · 舞蹈</p>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-num">7</div><div class="stat-label">場研習</div></div>
+      <div class="stat"><div class="stat-num">5</div><div class="stat-label">主題領域</div></div>
+      <div class="stat"><div class="stat-num">9</div><div class="stat-label">位講師</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="search-section">
+  <div class="search-inner">
+    <div class="search-wrap">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input type="text" id="search" placeholder="搜尋活動、講者、地點…" oninput="doFilter()" autocomplete="off">
+    </div>
+    <div class="filter-wrap">
+      <button class="pill active" onclick="setFilter('全部',this)">全部</button>
+      <button class="pill" onclick="setFilter('健康',this)">健康保健</button>
+      <button class="pill" onclick="setFilter('藝術',this)">藝術美學</button>
+      <button class="pill" onclick="setFilter('科技',this)">科技數位</button>
+      <button class="pill" onclick="setFilter('飲食',this)">飲食生活</button>
+      <button class="pill" onclick="setFilter('舞蹈',this)">舞蹈</button>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="result-count" id="result-count">顯示全部 7 場活動</div>
+  <div class="grid" id="grid"></div>
+</main>
+
+<footer>© 115 學年度 教師研習活動網站</footer>
+
+<!-- REGISTRATION FORM OVERLAY -->
+<div class="reg-overlay" id="reg-overlay">
+  <div class="reg-box" id="reg-box">
+    <button class="reg-close" onclick="closeReg()" aria-label="關閉">✕</button>
+    <div id="reg-content">
+      <h3>我要報名</h3>
+      <p class="reg-subtitle" id="reg-event-name"></p>
+      <label>教師姓名</label>
+      <input type="text" id="reg-name" placeholder="請輸入您的姓名" autocomplete="off" />
+      <button class="reg-submit" id="reg-submit-btn" onclick="submitReg()">確認報名</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modal-bg" onclick="handleBgClick(event)">
+  <div class="modal" id="modal">
+    <div class="modal-banner" id="modal-banner"></div>
+    <button class="modal-close-btn" onclick="closeModal()" aria-label="關閉">✕</button>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+const CAT = {
+  健康: { color: '#2d6a4f', bg: '#e8f5e0', bar: '#2d6a4f' },
+  藝術: { color: '#5b3e8a', bg: '#ede8f8', bar: '#5b3e8a' },
+  科技: { color: '#1a4f7a', bg: '#e0edf8', bar: '#1a4f7a' },
+  飲食: { color: '#7a4a00', bg: '#fdf0d5', bar: '#c4783a' },
+  舞蹈: { color: '#7a2040', bg: '#fce8ee', bar: '#7a2040' },
+};
+
+const ICON = {
+  健康: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>`,
+  藝術: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c1.19 0 2-.9 2-2 0-.55-.2-1.05-.55-1.45-.35-.4-.55-.9-.55-1.45 0-1.1.9-2 2-2h2.34c3.09 0 5.76-2.56 5.76-5.66C22.99 6.34 18.13 2 12 2"/><circle cx="6.5" cy="11.5" r="1.5" fill="currentColor"/><circle cx="9.5" cy="7.5" r="1.5" fill="currentColor"/><circle cx="14.5" cy="7.5" r="1.5" fill="currentColor"/><circle cx="17.5" cy="11.5" r="1.5" fill="currentColor"/></svg>`,
+  科技: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>`,
+  飲食: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>`,
+  舞蹈: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="4" r="2"/><path d="M9 12l-2 5 2.5-1 2.5 3 2.5-3 2.5 1-2-5"/><path d="M8 7l-2 3h12l-2-3"/></svg>`,
+};
+
+const events = [
+  {
+    id:2, title:"教師淡雅提籃花藝研習", cat:"藝術",
+    desc:"提升教師美學素養與紓解教學壓力，以台灣在地花材學習淡雅提籃花藝創作技法。",
+    date:"115年06月04日（星期四）", time:"14:00 – 16:00",
+    location:"國中部理化教室",
+    speakers:[{name:"汪王霓",role:"花藝講師",color:"#5b3e8a",
+      bio:"汪王霓老師長期投入花藝教育，擅長以台灣在地花材結合東方美學，帶領學員在繁忙教學生活中找到靜謐的創作空間，讓日常擁有一份獨特的花藝溫度。"}]
+  },
+  {
+    id:7, title:"國標舞美學初體驗", cat:"舞蹈",
+    desc:"國標舞十年黃金搭檔帶領教師感受舞蹈美學，體驗優雅肢體語言，分上午場與下午場兩梯次。",
+    date:"115年06月16日（星期二）", time:"上午場 09:00–12:00　／　下午場 13:00–16:00",
+    location:"韻律教室",
+    speakers:[
+      {name:"紀松佐",role:"運動舞蹈國家代表選手",color:"#7a2040",
+        bio:"紀松佐與紀松伶為國標舞十年黃金搭檔，同時為運動舞蹈國家代表選手，從小相互磨練切磋，在多項賽事中獲獎肯定，現致力於推廣國標舞藝術教育，引領更多人感受舞蹈之美。"},
+      {name:"紀松伶",role:"運動舞蹈國家代表選手",color:"#7a2040",
+        bio:"紀松伶與紀松佐為國標舞十年黃金搭檔，同時為運動舞蹈國家代表選手，具豐富舞台表演與教學經驗，本場將引領教師感受優雅肢體語言與節奏美學，讓身體在音樂中找到屬於自己的律動。"}
+    ]
+  },
+  {
+    id:6, title:"美感與穿搭研習", cat:"藝術",
+    desc:"衣櫥醫生賴庭荷老師親授色彩穿搭哲學，揭秘國際布克獎頒獎典禮「戰袍」背後的美學抉擇。",
+    date:"115年06月16日（星期二）", time:"14:00 – 16:00",
+    location:"教務處旁多媒體教室",
+    speakers:[{name:"賴庭荷",role:"形象顧問・衣櫥醫生",color:"#5b3e8a",
+      bio:"賴庭荷老師為知名形象顧問「衣櫥醫生」，亦是獲國際布克獎的作家楊双子的太太。她將分享色彩分析與穿搭如何在重要場合為人增加自信，並揭秘台灣首位獲國際布克獎時的「戰袍」選擇哲學與造型故事。"}]
+  },
+  {
+    id:5, title:"AI 融入行政流程優化術", cat:"科技",
+    desc:"提升教師數位科技素養，透過 AI 工具強化學校行政流程效能。",
+    date:"115年06月17日（星期三）", time:"12:00 – 14:00",
+    location:"教務處旁多媒體教室",
+    speakers:[
+      {name:"楊婷如",role:"高中部教師・數位種子教師",color:"#1a4f7a",
+        bio:"楊婷如老師為高中部教師暨數位種子教師，長期研究 AI 工具於教育現場的應用，致力協助教師以人工智慧提升備課與行政效率，讓科技真正服務於教學核心。"},
+      {name:"紀松佐",role:"高中部教師・數位種子教師",color:"#185FA5",
+        bio:"紀松佐老師為高中部教師暨數位種子教師，兼具教育與數位科技專長，同時也是國標舞十年搭檔，跨界能量豐沛。本場將分享 AI 工具於職場行政流程的實踐心得與操作示範。"}
+    ]
+  },
+  {
+    id:4, title:"大人感微醺午茶", cat:"飲食",
+    desc:"法式橙香火焰薄餅 & 翡翠冰茶，由西餐執照廚師帶領，一同釋放學期末壓力，共度悠閒下午。",
+    date:"115年06月18日（星期四）", time:"14:00 – 16:00",
+    location:"家政教室",
+    speakers:[{name:"黃怡潔",role:"稻江護家講師",color:"#7a4a00",
+      bio:"黃怡潔老師為稻江護理家事職業學校西餐烹飪講師，持有西餐廚師執照，擅長法式料理與下午茶點心製作，致力將優雅的飲食文化帶入日常生活，讓每一口美食都成為療癒時刻。"}]
+  },
+  {
+    id:3, title:"Google 職場大揭密", cat:"科技",
+    desc:"邀請 Google 業界實務工作者分享 Google 業務文化，並建議高中生應具備的核心能力與未來展望。",
+    date:"115年06月29日（星期一）", time:"10:00 – 12:00",
+    location:"教務處旁多媒體教室",
+    speakers:[{name:"Sam",role:"Google 廣告業務",color:"#1a4f7a",
+      bio:"Sam 任職於 Google 廣告業務部門，熟悉數位廣告生態與全球職場文化，將分享 Google 企業文化、真實工作日常，以及 Google 對未來人才的期待，給在場師生最直接的業界洞見。"}]
+  },
+  {
+    id:1, title:"物理治療與日常保健", cat:"健康",
+    desc:"邀請校友提供教職員專屬的經絡理療與筋膜放鬆，修復講台續航力，提升教師自我照顧能力。",
+    date:"115年07月02日（星期四）", time:"10:00 – 12:00",
+    location:"教務處旁多媒體教室",
+    speakers:[{name:"吳哲維",role:"物理治療師（校友）",color:"#2d6a4f",
+      bio:"吳哲維物理治療師為本校校友，專長為經絡理療與運動傷害防護，致力推廣職場保健與筋膜放鬆技術，協助教職員緩解長時間授課帶來的身體不適，提升整體工作品質與生活幸福感。"}]
+  }
+];
+
+let currentFilter = '全部';
+
+function initials(name) { return name.slice(0,2); }
+
+function renderCards(list) {
+  const grid = document.getElementById('grid');
+  const rc = document.getElementById('result-count');
+  rc.textContent = list.length === 7 ? '顯示全部 7 場活動' : `顯示 ${list.length} 場活動`;
+
+  if (!list.length) {
+    grid.innerHTML = '<div class="empty"><div class="empty-icon">🔍</div>找不到符合條件的研習活動</div>';
+    return;
+  }
+
+  grid.innerHTML = list.map((e, i) => {
+    const c = CAT[e.cat];
+    return `
+    <div class="card" onclick="openModal(${e.id})" style="animation-delay:${i*0.05}s" role="button" tabindex="0" aria-label="${e.title}">
+      <div class="card-accent-bar" style="background:${c.bar}"></div>
+      <div class="card-body">
+        <div class="card-head">
+          <div class="icon-circle" style="background:${c.bg};color:${c.color}">${ICON[e.cat]}</div>
+          <div>
+            <span class="card-tag" style="background:${c.bg};color:${c.color}">${e.cat}</span>
+            <div class="card-title">${e.title}</div>
+          </div>
+        </div>
+        <p class="card-desc">${e.desc}</p>
+        <div class="card-meta">
+          <div class="meta-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span class="meta-val">${e.date}</span>
+          </div>
+          <div class="meta-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span class="meta-val">${e.time}</span>
+          </div>
+          <div class="meta-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="meta-val">${e.location}</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        ${e.speakers.map(s => `
+          <div class="speaker-chip">
+            <div class="chip-avatar" style="background:${s.color}">${initials(s.name)}</div>
+            <span class="chip-name">${s.name}</span>
+            <span>${s.role}</span>
+          </div>
+        `).join('')}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function doFilter() {
+  const q = document.getElementById('search').value.trim().toLowerCase();
+  let list = currentFilter === '全部' ? events : events.filter(e => e.cat === currentFilter);
+  if (q) list = list.filter(e =>
+    e.title.toLowerCase().includes(q) ||
+    e.desc.toLowerCase().includes(q) ||
+    e.location.toLowerCase().includes(q) ||
+    e.date.includes(q) ||
+    e.speakers.some(s => s.name.includes(q) || s.role.includes(q))
+  );
+  renderCards(list);
+}
+
+function setFilter(cat, el) {
+  currentFilter = cat;
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  doFilter();
+}
+
+function openModal(id) {
+  const e = events.find(x => x.id === id);
+  const c = CAT[e.cat];
+  document.getElementById('modal-banner').style.background = c.bar;
+  document.getElementById('modal-body').innerHTML = `
+    <span class="modal-tag" style="background:${c.bg};color:${c.color}">${e.cat}</span>
+    <h2 class="modal-title">${e.title}</h2>
+    <p class="modal-desc">${e.desc}</p>
+    <div class="modal-meta-grid">
+      <div class="modal-meta-box">
+        <div class="label">日期</div>
+        <div class="val">${e.date}</div>
+      </div>
+      <div class="modal-meta-box">
+        <div class="label">時間</div>
+        <div class="val">${e.time}</div>
+      </div>
+      <div class="modal-meta-box" style="grid-column:1/-1">
+        <div class="label">地點</div>
+        <div class="val">${e.location}</div>
+      </div>
+    </div>
+    <div class="speakers-section">
+      <div class="speakers-label">講師介紹</div>
+      ${e.speakers.map(s => `
+        <div class="speaker-card">
+          <div class="speaker-avatar-lg" style="background:${s.color}">${initials(s.name)}</div>
+          <div>
+            <div class="speaker-name">${s.name}</div>
+            <div class="speaker-role">${s.role}</div>
+            <div class="speaker-bio">${s.bio}</div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+    <button class="register-btn" onclick="openReg(${e.id})">我要報名</button>
+  `;
+  document.getElementById('modal-bg').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal-bg').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function handleBgClick(e) {
+  if (e.target === document.getElementById('modal-bg')) closeModal();
+}
+
+// ── REGISTRATION ──────────────────────────────────────
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxCIMCDKpKyrUNiWMRk_c4kR9IkQCKo5Y4bpfNSQh_fn94CzLv47s_q4lnsxRxvu0igWw/exec';
+let currentRegEvent = null;
+
+function openReg(id) {
+  currentRegEvent = events.find(x => x.id === id);
+  document.getElementById('reg-event-name').textContent = currentRegEvent.title + '　' + currentRegEvent.date;
+  document.getElementById('reg-name').value = '';
+  document.getElementById('reg-content').innerHTML = `
+    <h3>我要報名</h3>
+    <p class="reg-subtitle">${currentRegEvent.title}　${currentRegEvent.date}</p>
+    <label>教師姓名</label>
+    <input type="text" id="reg-name" placeholder="請輸入您的姓名" autocomplete="off" />
+    <button class="reg-submit" id="reg-submit-btn" onclick="submitReg()">確認報名</button>
+  `;
+  document.getElementById('reg-overlay').classList.add('open');
+  setTimeout(() => { const n = document.getElementById('reg-name'); if(n) n.focus(); }, 100);
+}
+
+function closeReg() {
+  document.getElementById('reg-overlay').classList.remove('open');
+  currentRegEvent = null;
+}
+
+async function submitReg() {
+  const nameEl = document.getElementById('reg-name');
+  const name = nameEl ? nameEl.value.trim() : '';
+  if (!name) { nameEl.style.borderColor = '#e24b4a'; nameEl.focus(); return; }
+
+  const btn = document.getElementById('reg-submit-btn');
+  btn.disabled = true;
+  btn.textContent = '送出中…';
+
+  const savedName = name;
+  const savedEvent = currentRegEvent;
+
+  const params = new URLSearchParams({
+    name: savedName,
+    event: savedEvent.title,
+    date: savedEvent.date,
+    time: savedEvent.time,
+    location: savedEvent.location,
+    timestamp: new Date().toLocaleString('zh-TW', {timeZone:'Asia/Taipei'})
+  });
+  new Image().src = APPS_SCRIPT_URL + '?' + params.toString();
+  await new Promise(r => setTimeout(r, 800));
+
+  const html = '<div class="success-box">' + '<div class="success-icon">🎉</div>' + '<div class="success-title">歡迎老師光臨！</div>' + '<div class="success-msg">' + '<strong>' + savedName + '老師</strong>，您已成功報名<br>' + '<strong>' + savedEvent.title + '</strong><br>' + '期待在研習現場與您相見 ✨' + '</div>' + '<button class="success-close-btn" onclick="closeReg()">返回活動頁面</button>' + '</div>';
+  document.getElementById('reg-content').innerHTML = html;
+}
+
+document.getElementById('reg-overlay').addEventListener('click', function(e) {
+  if (e.target === this) closeReg();
+});
+
+// ── END REGISTRATION ───────────────────────────────────
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeModal(); closeReg(); }
+});
+
+renderCards(events);
+</script>
+</body>
+</html>
